@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          https://umbrasdev.alterparadox.es/
+          <a href="https://umbrasdev.alterparadox.es/">ALTER</a>
         </p>
         <a
           className="App-link"
