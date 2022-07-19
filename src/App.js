@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import ActivitiesTable from './components/ActivitiesTable';
+import { getActivities } from './services/ActivitiesServices';
 
-function App() {
+const App = () => {
+  const [activities, setActivities] = useState(null); 
+
+  useEffect(() => {
+    void (async () => {
+      setActivities(await getActivities());
+    })();
+  }, []);
+
+
+  useEffect(() => { activities && console.log(activities) }, [activities]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <a href="https://umbras.alterparadox.es/">ALTER</a>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='page'>
+      { activities ? <ActivitiesTable activities={activities} /> : <a href="https://umbras.alterparadox.es/">ALTER</a> }
     </div>
   );
 }
