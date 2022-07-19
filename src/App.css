@@ -1,38 +1,122 @@
-.App {
+html {
+  font-size: medium;
+}
+body {
+  margin:10px;
+  padding:0;
+  border:0;
+  background-image: linear-gradient(135deg, #373f70 42.86%, #444e8a 42.86%, #444e8a 50%, #373f70 50%, #373f70 92.86%, #444e8a 92.86%, #444e8a 100%);
+  background-size: 49.50px 49.50px;
+}
+.logo {
+  width: 100%;
+  max-width: 360px;
+}
+.titulo {
+  font-size: 33px;
+  font-weight: bold;
+}
+.subtitulo {
+  font-size: 21.7px;
+}
+.titulo, .subtitulo {
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgb(28, 28, 28);
+}
+.activitylist {
+  margin-top: 10px;
+}
+.activitycard {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.activitycard.Otros {
+  box-sizing: border-box;
+  border-width: 5px;
+  border-color: #60369a;
+  border-style: outset;
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(219,219,251,1) 12%, rgba(195,195,249,1) 20%, rgba(255,255,255,1) 100%);
+}
+
+.flex {
+  display: flex;
+}
+.flex > * {
+  flex-grow: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 200px auto;
+}
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #c4c4c4;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.activitycard.Otros .title {
+  background-color: #6404ea;
+  color: #fff;
+}
+
+.justified {
+  text-align: justify;
+  text-justify: inter-word;
+}
+.align-right {
+  text-align: right;
+}
+.align-center {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+progress {
+  margin: 10px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  background-color:#fff;
+  border: 1px solid #666;
+  box-shadow: 0 0 0 1px #666;
+  border-radius: 3px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
-.App-link {
-  color: #61dafb;
+progress[value]::-webkit-progress-value {
+  background-image:
+      -webkit-linear-gradient(top, 
+                              rgba(255, 255, 255, .25), 
+                              rgba(0, 0, 0, .25)),
+      -webkit-linear-gradient(left, rgb(0, 177, 30), rgb(0, 177, 30));
+  border-radius: 2px; 
+  background-size: 35px 40px, 100% 100%, 100% 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.progress-label {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  left: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  text-shadow:0 0 3px #fff, 0 0 1px #fff;
+  font-family: Open Sans Condensed,sans-serif;
 }
