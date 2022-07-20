@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const getIcon = (activityType) => {
     switch(activityType.toLowerCase()) {
         case "otros":
@@ -20,15 +22,29 @@ const getIcon = (activityType) => {
             return "🌡️";
     }
 }
-
+const getDuration = (duration) => {
+    const durationNumber = parseInt(duration);
+    const halfhours = Math.floor(durationNumber / 30);
+    if (halfhours > 0) {
+        const hours = Math.floor(halfhours / 2);
+        return { hours, minutes: halfhours % 2 === 0 ? null : 30 };
+    } else {
+        return { hours: null, minutes: null };
+    }
+}
 const ActivityCard = ({ activity }) => {
-    return <div className={`activitycard ${activity.Type}`}>
+    const { hours, minutes } = getDuration(activity.Duration);
+    const [ collapsed, setCollapsed ] = useState(true);
+    return <div className={`activitycard ${collapsed && "collapsed"} ${activity.Type}`} onClick={() => setCollapsed(false)}>
         <div className="title">
             <div>{getIcon(activity.Type)} { activity.Name }</div>
         </div>
         <div>
             <div className="flex">
-                <div>⌚ { new Date(activity.ActivityDate).toLocaleString('es-ES', { weekday: "long", hour: "numeric", minute: "2-digit", hour12: false }) }</div>
+                <div>
+                    <span>📅 { new Date(activity.ActivityDate).toLocaleString('es-ES', { weekday: "long", hour: "numeric", minute: "2-digit", hour12: false }) }</span>
+                    { (hours || minutes) && <><span> · </span><span>⌚ { hours && <span>{hours}h</span> }{ (minutes && minutes > 0) && <span> {minutes}'</span> }</span></>}
+                 </div>
                 { activity.Place !== "Sin lugar asignado" && <div className="align-right">📍 { activity.Place }</div> }
             </div>
             { activity.MaxParticipants > 0 && 
@@ -44,6 +60,7 @@ const ActivityCard = ({ activity }) => {
             }
             
         </div>
+        {activity.LongSummary.length > 150 && <div className="plus">↧ Ver más ↧</div> }
     </div>;
 }
 
