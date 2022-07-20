@@ -34,7 +34,7 @@ const getDuration = (duration) => {
 }
 const ActivityCard = ({ activity }) => {
     const { hours, minutes } = getDuration(activity.Duration);
-    const [ collapsed, setCollapsed ] = useState(true);
+    const [ collapsed, setCollapsed ] = useState(activity.LongSummary.length > 150);
     return <div className={`activitycard ${collapsed && "collapsed"} ${activity.Type}`} onClick={() => setCollapsed(false)}>
         <div className="title">
             <div>{getIcon(activity.Type)} { activity.Name }</div>
@@ -60,7 +60,7 @@ const ActivityCard = ({ activity }) => {
             }
             
         </div>
-        {activity.LongSummary.length > 150 && <div className="plus">↧ Ver más ↧</div> }
+        { collapsed && <div className="plus">↧ Ver más ↧</div> }
     </div>;
 }
 

@@ -26,12 +26,15 @@ body {
 }
 .activitylist {
   margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 .activitycard {
   background-color: #f2f2f2;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.4);
-  margin-bottom: 10px;
+  box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.4);
   padding: 10px;
   transition: all 250ms ease-in-out;
   max-height: 1000px;
@@ -48,19 +51,20 @@ body {
   bottom: 0;
   left: 0;
   text-align: center;
-
+  font-weight: bold;
 }
 .activitycard.collapsed {
   max-height: 198px;
   overflow-y:hidden;
   text-overflow:ellipsis;
+  cursor:pointer;
 }
 .activitycard.collapsed .plus {
   display: block;
 }
 .activitycard.Otros {
   box-sizing: border-box;
-  border-width: 5px;
+  border-width: 3px;
   border-color: #60369a;
   border-style: outset;
   background: rgb(255,255,255);
@@ -163,4 +167,17 @@ a, a:active, a:visited {
 
 a:hover {
   font-size: 16px;
+}
+
+@media only screen and (orientation: landscape) {
+  .activitylist {
+    grid-template-columns: 1fr 1fr;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  .header > * {
+    flex-grow: 1;
+  }
 }
