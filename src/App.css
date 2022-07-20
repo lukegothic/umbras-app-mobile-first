@@ -173,6 +173,7 @@ a:hover {
   .activitylist {
     grid-template-columns: 1fr 1fr;
   }
+  /*
   .header {
     display: flex;
     align-items: center;
@@ -180,4 +181,5 @@ a:hover {
   .header > * {
     flex-grow: 1;
   }
+  */
 }
