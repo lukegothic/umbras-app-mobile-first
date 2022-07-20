@@ -18,12 +18,21 @@ const App = () => {
 
   return (
     <div className='page'>
-      <div className='align-center'>
-        <img className='logo'  src="/assets/Logo_ALTER_Color.webp" />
+      <div>
+        <div className='align-center'>
+          <img className='logo'  src="/assets/Logo_ALTER_Color.webp" />
+        </div>
+        <div>
+          <div className='titulo'>Listado de actividades</div>
+          <div className='subtitulo'>Umbras de Alter Paradox 2022</div>
+        </div>
       </div>
-      <div className='titulo'>Listado de actividades</div>
-      <div className='subtitulo'>Umbras de Alter Paradox 2022</div>
-      { activities ? <ActivitiesTable activities={activities} /> : <a href="https://umbras.alterparadox.es/">ALTER</a> }
+      { activities ? <ActivitiesTable activities={activities} /> : <div className='align-center'><img src="./assets/loader.gif" /></div> }
+      <hr></hr>
+      <div className='align-center footer'>
+        <div><a href="https://alterparadox.es/">Visita Alter Paradox</a></div>
+        <div><em>“No hay tiempo perdido para quien sabe vivirlo”</em></div>
+      </div>
     </div>
   );
 }

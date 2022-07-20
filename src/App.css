@@ -77,6 +77,14 @@ body {
 .align-center {
   text-align: center;
 }
+
+.footer {
+  color: #fff;
+}
+.footer em {
+  font-size: 12px;
+}
+
 progress {
   margin: 10px 0;
 }
@@ -119,4 +127,16 @@ progress[value]::-webkit-progress-value {
   line-height: 20px;
   text-shadow:0 0 3px #fff, 0 0 1px #fff;
   font-family: Open Sans Condensed,sans-serif;
+}
+
+a, a:active, a:visited {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 250ms ease-in-out;
+}
+
+a:hover {
+  font-size: 16px;
 }
