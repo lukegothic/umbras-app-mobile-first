@@ -18,22 +18,21 @@ const getIcon = (activityType) => {
             return "☕";
         case "juego de mesa":
             return "🎲";
+        case "wargame":
+            return "⚔️";
         default:
             return "🌡️";
     }
 }
 const getDuration = (duration) => {
     const durationNumber = parseInt(duration);
-    const halfhours = Math.floor(durationNumber / 30);
-    if (halfhours > 0) {
-        const hours = Math.floor(halfhours / 2);
-        return { hours, minutes: halfhours % 2 === 0 ? null : 30 };
-    } else {
-        return { hours: null, minutes: null };
-    }
+    const hours = Math.floor(durationNumber / 60);
+    const minutes = durationNumber % 60;
+    return { hours, minutes };
 }
 const ActivityCard = ({ activity }) => {
     const { hours, minutes } = getDuration(activity.Duration);
+    console.log(hours, minutes);
     const [ collapsed, setCollapsed ] = useState(activity.LongSummary.length > 150);
     return <div className={`activitycard ${collapsed && "collapsed"} ${activity.Type}`} onClick={() => setCollapsed(false)}>
         <div className="title">
@@ -43,7 +42,7 @@ const ActivityCard = ({ activity }) => {
             <div className="flex">
                 <div>
                     <span>📅 { new Date(activity.ActivityDate).toLocaleString('es-ES', { weekday: "long", hour: "numeric", minute: "2-digit", hour12: false }) }</span>
-                    { (hours || minutes) && <><span> · </span><span>⌚ { hours && <span>{hours}h</span> }{ (minutes && minutes > 0) && <span> {minutes}'</span> }</span></>}
+                    { (hours || minutes) && <><span> · </span><span>⌚ { hours > 0 && <span>{hours}h</span> }{ minutes > 0 && <span> {minutes}'</span> }</span></>}
                  </div>
                 { activity.Place !== "Sin lugar asignado" && <div className="align-right">📍 { activity.Place }</div> }
             </div>
