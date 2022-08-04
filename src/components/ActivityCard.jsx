@@ -5,7 +5,7 @@ const getIcon = (activityType) => {
         case "otros":
             return "🌌";
         case "rol de mesa":
-            return "📚";
+            return "🏰";
         case "torneo":
             return "🏆";
         case "infantil":
@@ -20,8 +20,10 @@ const getIcon = (activityType) => {
             return "🎲";
         case "wargame":
             return "⚔️";
+        case "escape room":
+            return "🔒";
         default:
-            return "🌡️";
+            return "🌈";
     }
 }
 const getDuration = (duration) => {
@@ -32,11 +34,11 @@ const getDuration = (duration) => {
 }
 const ActivityCard = ({ activity }) => {
     const { hours, minutes } = getDuration(activity.Duration);
-    console.log(hours, minutes);
     const [ collapsed, setCollapsed ] = useState(activity.LongSummary.length > 150);
     return <div className={`activitycard ${collapsed && "collapsed"} ${activity.Type}`} onClick={() => setCollapsed(false)}>
-        <div className="title">
-            <div>{getIcon(activity.Type)} { activity.Name }</div>
+        <div className="activitycard-header">
+            <div className="activitycard-header-title"><span className="activitycard-header-icon">{getIcon(activity.Type)}</span> { activity.Name }</div>
+            <div className="activitycard-header-subtitle"><span>» {activity.Type}</span></div>
         </div>
         <div>
             <div className="flex">

@@ -24,6 +24,36 @@ body {
   color: #fff;
   text-shadow: 1px 1px 2px rgb(28, 28, 28);
 }
+.activity-group-header {
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.4);
+  padding: 10px;
+  margin: 20px 0 10px 50px;
+  position: relative;
+}
+.activity-group-header::before {
+  background-color: #ffffff;
+  content: "\00a0";
+  display: block;
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  left: -4px;
+  transform: rotate(47deg) skew(5deg);
+}
+
+.activity-group-header .activity-group-header-dropimage {
+  position: absolute;
+  top: -10px;
+  left: -55px;
+  border-radius: 50%;
+}
+.activity-group-header .activity-group-header-text {
+  font-weight: bold;
+}
+
 .activitylist {
   margin-top: 10px;
   display: grid;
@@ -82,18 +112,38 @@ body {
   display: grid;
   grid-template-columns: 200px auto;
 }
-.title {
+.activitycard-header {
   font-size: 18px;
   font-weight: bold;
   background-color: #c4c4c4;
-  padding: 5px;
+  padding: 2px 5px 2px 45px;
   border-radius: 5px;
   margin-bottom: 5px;
 }
-.activitycard.Otros .title {
+.activitycard.Otros .activitycard-header {
   background-color: #6404ea;
   color: #fff;
 }
+.activitycard-header-subtitle {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 12px;
+}
+.activitycard-header-icon {
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.button {
+
+}
+.button .button-floating {
+
+}
+
 
 .justified {
   text-align: justify;
