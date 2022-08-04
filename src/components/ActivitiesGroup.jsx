@@ -8,7 +8,7 @@ const ActivitiesGroup = ({ group, activities }) => {
         <div className="activity-group-header">
             <div>
                 <img style={{ backgroundColor: group.fondo }} className="activity-group-header-dropimage" width="48" src={`./assets/group-headers/group-header-${group.date}.png`} />
-                <span className="activity-group-header-text" style={{color: group.color}}>Soy {group.personaje} ¡{group.entradilla} al {capitalizeFirstLetter(d.toLocaleString("es-ES", {weekday:"long"}))}!</span>
+                <span className="activity-group-header-text" style={{color: group.color}}>Soy {group.personaje} ¡{group.entradilla} {capitalizeFirstLetter(d.toLocaleString("es-ES", {weekday:"long"}))}!</span>
             </div>
             <div style={{color: group.color}}>
                 Inscríbete en las actividades en el mostrador a partir de las 9:00, y a la tarde a partir de las 16:00. ¡{group.despedida}!
