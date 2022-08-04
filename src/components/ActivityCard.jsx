@@ -43,7 +43,7 @@ const ActivityCard = ({ activity }) => {
         <div>
             <div className="flex">
                 <div>
-                    <span>📅 { new Date(activity.ActivityDate).toLocaleString('es-ES', { weekday: "long", hour: "numeric", minute: "2-digit", hour12: false }) }</span>
+                    <span>🗓️ { new Date(activity.ActivityDate).toLocaleString('es-ES', { weekday: "long", hour: "numeric", minute: "2-digit", hour12: false }) }</span>
                     { (hours || minutes) && <><span> · </span><span>⌚ { hours > 0 && <span>{hours}h</span> }{ minutes > 0 && <span> {minutes}'</span> }</span></>}
                  </div>
                 { activity.Place !== "Sin lugar asignado" && <div className="align-right">📍 { activity.Place }</div> }

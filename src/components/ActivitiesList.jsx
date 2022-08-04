@@ -1,10 +1,10 @@
 import ActivitiesGroup from "./ActivitiesGroup";
 // agrupacion de actividades por dias, date = dia, month = mes - 1 (base 0), year: año
 const groups = [
-    { date: 12, month: 7, year: 2022, personaje: "el Mago de Oz ✨", entradilla: "Chuli", despedida: "Adiosss", color: "#000000", fondo: "#ffffff" },
-    { date: 13, month: 7, year: 2022, personaje: "la Caperucita Roja 🍎", entradilla: "Ñam", despedida: "Adiosss", color: "#000000", fondo: "#ffffff" },
+    { date: 12, month: 7, year: 2022, personaje: "el Mago de Oz ✨", entradilla: "Aloha", despedida: "Adiosss", color: "#000000", fondo: "#ffffff" },
+    { date: 13, month: 7, year: 2022, personaje: "la Caperucita Roja 🍎", entradilla: "Benvenuti", despedida: "Adiosss", color: "#000000", fondo: "#ffffff" },
     { date: 14, month: 7, year: 2022, personaje: "el Gato con Botas 🗡️", entradilla: "Bienvemiauuu", despedida: "Adiosss", color: "#000000", fondo: "#ffffff" },
-    { date: 15, month: 7, year: 2022, personaje: "la Cenicienta 👑", entradilla: "Holi", despedida: "Adiosss", color: "#000000", fondo: "#ffffff" },
+    { date: 15, month: 7, year: 2022, personaje: "la Cenicienta 👑", entradilla: "Cheers", despedida: "Adiosss", color: "#000000", fondo: "#ffffff" },
 ];
 const ActivitiesList = ({ activities }) => {
     activities.sort((a,b) => a.Name.localeCompare(b.Name));
