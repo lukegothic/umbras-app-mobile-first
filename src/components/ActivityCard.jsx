@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ActivitiesProgress } from "./ActivitiesProgress";
+import ActivitiesProgressSimple from "./ActivitiesProgressSimple";
 
 const getIcon = (activityType) => {
     switch(activityType.toLowerCase()) {
@@ -48,12 +50,7 @@ const ActivityCard = ({ activity }) => {
                  </div>
                 { activity.Place !== "Sin lugar asignado" && <div className="align-right">📍 { activity.Place }</div> }
             </div>
-            { activity.MaxParticipants > 0 && 
-                    <div style={{ position:"relative", width: "100%" }}>
-                        <progress className="progress-bar" value={activity.NumParticipants} max={activity.MaxParticipants}></progress>
-                        <span className="progress-label">{activity.NumParticipants} de {activity.MaxParticipants} inscritos</span>
-                    </div>
-            }
+            { activity.MaxParticipants > 0 && <ActivitiesProgressSimple numParticipants={activity.NumParticipants} maxParticipants={activity.MaxParticipants} /> }
             { activity.LongSummary && <>
                     { activity.MaxParticipants <= 0 && <hr /> }
                     <div className="justified">{ activity.LongSummary }</div>

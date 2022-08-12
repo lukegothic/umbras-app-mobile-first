@@ -1,3 +1,15 @@
+const getSummary = (activity, activities) => {
+    if (activity.LongSummary || activity.Summary) {
+        return activity.LongSummary || activity.Summary;
+    } else {
+        const activity_static = activities.find(activity_data => activity.Id === activity_data.Id);
+        if (activity_static) {
+            return activity_static.LongSummary || activity_static.Summary;
+        } else {
+            return "No hay descripción de la actividad ¡Todavía!";
+        }
+    }
+}
 export const getActivities = async() => {
     // servicio live
     const activitiesEndpointPROD = "https://dev.alterparadox.es/index.php?rest_route=/alter-api/v1/GetJsonActividades";
@@ -13,7 +25,10 @@ export const getActivities = async() => {
         const activitiesLive = await response.json();
         // activities es las actividades en vivo y las descripciones 
         if (response.ok) {
-            activities = activitiesLive.map(activity => ({...activity, LongSummary: activity.LongSummary || activities.find(activity_data => activity.Id === activity_data.Id).LongSummary }));
+            activities = activitiesLive.map(activity => ({
+                ...activity,
+                LongSummary: getSummary(activity, activities)
+            }));
         }
     }
     return activities;
