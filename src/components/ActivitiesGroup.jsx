@@ -11,7 +11,7 @@ const ActivitiesGroup = ({ group, activities }) => {
                 <span className="activity-group-header-text" style={{color: group.color}}>Soy {group.personaje} ¡{group.entradilla} {capitalizeFirstLetter(d.toLocaleString("es-ES", {weekday:"long"}))}!</span>
             </div>
             <div style={{color: group.color}}>
-                Inscríbete en las actividades en el mostrador a partir de las 9:00, y a la tarde a partir de las 16:00. ¡{group.despedida}!
+                Inscríbete en las actividades en el mostrador a partir de las 9:00, y a la tarde a partir de las 13:00. ¡{group.despedida}!
             </div>
         </div>
         <div className="activitylist">
