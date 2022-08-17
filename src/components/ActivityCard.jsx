@@ -34,7 +34,7 @@ const getDuration = (duration) => {
 }
 const ActivityCard = ({ activity }) => {
     const { hours, minutes } = getDuration(activity.Duration);
-    const [ collapsed, setCollapsed ] = useState(activity.LongSummary.length > 150);
+    const [ collapsed, setCollapsed ] = useState(activity.LongSummary && activity.LongSummary.length > 150);
     return <div className={`activitycard ${collapsed && "collapsed"} ${activity.Type}`} onClick={() => setCollapsed(false)}>
         <div className="activitycard-header">
             <div className="activitycard-header-title"><span className="activitycard-header-icon">{getIcon(activity.Type)}</span> { activity.Name }</div>

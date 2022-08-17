@@ -1,10 +1,10 @@
 import ActivitiesGroup from "./ActivitiesGroup";
 // agrupacion de actividades por dias, date = dia, month = mes - 1 (base 0), year: año
 const groups = [
-    { date: 12, month: 7, year: 2022, personaje: "el Mago de Oz ✨", entradilla: "Por fin es", despedida: "Adiosss", color: "#444444", fondo: "#fcffb0" },
-    { date: 13, month: 7, year: 2022, personaje: "la Caperucita Roja 🍎", entradilla: "Ha llegado mi", despedida: "Adiosss", color: "#a81b11", fondo: "#ffd6e7" },
-    { date: 14, month: 7, year: 2022, personaje: "el Gato con Botas 🗡️", entradilla: "Bienvemiauuu al", despedida: "Adiosss", color: "#0d3e5c", fondo: "#dbdbdb" },
-    { date: 15, month: 7, year: 2022, personaje: "la Cenicienta 👑", entradilla: "Feliz", despedida: "Adiosss", color: "#9c0699", fondo: "#ffebf3" },
+    { date: 12, month: 7, year: 2022, personaje: "el Mago de Oz ✨", entradilla: "Llegó la hora, es", despedida: "Shazammm", color: "#333333", fondo: "#56acee" },
+    { date: 13, month: 7, year: 2022, personaje: "la Caperucita Roja 🍎", entradilla: "Toc toc, ¿Quién es? Es", despedida: "Hasta prontooo", color: "#a81b11", fondo: "#ffd6e7" },
+    { date: 14, month: 7, year: 2022, personaje: "el Gato con Botas 🗡️", entradilla: "Bienvemiauuu al", despedida: "Marramiauuu", color: "#0d3e5c", fondo: "#dbdbdb" },
+    { date: 15, month: 7, year: 2022, personaje: "la Cenicienta 👑", entradilla: "Qué maravilla, es", despedida: "Ciaooo", color: "#9c0699", fondo: "#ffebf3" },
 ];
 const ActivitiesList = ({ activities }) => {
     activities.sort((a,b) => a.Name.localeCompare(b.Name));
