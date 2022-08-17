@@ -50,7 +50,7 @@ const ActivityCard = ({ activity }) => {
                  </div>
                 { activity.Place !== "Sin lugar asignado" && <div className="align-right">📍 { activity.Place }</div> }
             </div>
-            { activity.MaxParticipants > 0 && <ActivitiesProgressSimple numParticipants={activity.NumParticipants} maxParticipants={activity.MaxParticipants} /> }
+            { activity.MaxParticipants > 0 && <ActivitiesProgress numParticipants={activity.NumParticipants} maxParticipants={activity.MaxParticipants} /> }
             { activity.LongSummary && <>
                     { activity.MaxParticipants <= 0 && <hr /> }
                     <div className="justified">{ activity.LongSummary }</div>
